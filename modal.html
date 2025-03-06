@@ -7,6 +7,15 @@
   <body>
     <div id="modal">
       <h1>Global Ping Statistics</h1>
+
+      <div id="toggle-container">
+        <span class="toggle-label">Exclude China:</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="excludeCN-toggle" checked />
+          <span class="slider"></span>
+        </label>
+      </div>
+
       <div id="stats">
         <p><strong>Mean of Last:</strong> <span id="last-mean"></span></p>
         <p><strong>Mean of Avg:</strong> <span id="avg-mean"></span></p>
