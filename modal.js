@@ -27,16 +27,21 @@ function updateModal(data) {
   document.getElementById("worst-mean").textContent = worst_mean.toFixed(2);
 
   const tbody = document.querySelector("#top5-table tbody");
-  tbody.innerHTML = avg_top5
-    .map(
-      (item) => `
-        <tr>
-            <td>${item.location}</td>
-            <td>${item.value.toFixed(2)}</td>
-        </tr>
-    `
-    )
-    .join("");
+
+  tbody.innerHTML = "";
+  avg_top5.forEach((item) => {
+    const row = document.createElement("tr");
+
+    const locationCell = document.createElement("td");
+    locationCell.textContent = item.location; // Safe assignment
+    row.appendChild(locationCell);
+
+    const valueCell = document.createElement("td");
+    valueCell.textContent = item.value.toFixed(2); // Safe assignment
+    row.appendChild(valueCell);
+
+    tbody.appendChild(row);
+  });
 }
 
 // Handle toggle button click
