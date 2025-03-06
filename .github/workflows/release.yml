@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@v4.2.2
 
       - name: Zip Extension
-        run: zip -qq -r pingpe-overview.zip * --exclude '*.git*'
+        run: zip -qq -r pingpe-overview.zip . -x "*.git*" "dist/*"
         working-directory: dist/
 
       - name: Publish Firefox
