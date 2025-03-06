@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "author": "Arash Hatami",
+  "name": "Ping.pe Overview",
+  "version": "1.0",
+  "description": "Displays ping statistics for the current ping.pe session",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_popup": "modal.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://ping.pe/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
