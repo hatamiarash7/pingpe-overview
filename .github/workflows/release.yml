@@ -35,7 +35,6 @@ jobs:
           jwt-issuer: ${{ secrets.FIREFOX_API_KEY }}
           jwt-secret: ${{ secrets.FIREFOX_API_SECRET }}
           xpi-path: pingpe-overview.zip
-          license: MIT
 
       - name: Release
         uses: softprops/action-gh-release@v2
