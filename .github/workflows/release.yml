@@ -29,12 +29,13 @@ jobs:
         run: zip -qq -r pingpe-overview.zip . -x "*.git*" "dist/*"
 
       - name: Publish Firefox
-        uses: maoserr/firefox_extension_publish@v1.0.4
+        uses: wdzeng/firefox-addon@v1
         with:
-          firefox_extension_id: pingpe-overview@arash-hatami.ir
-          api_key: ${{ secrets.FIREFOX_API_KEY }}
-          api_secret: ${{ secrets.FIREFOX_API_SECRET }}
-          file: pingpe-overview.zip
+          addon-guid: pingpe-overview@arash-hatami.ir
+          jwt-issuer: ${{ secrets.FIREFOX_API_KEY }}
+          jwt-secret: ${{ secrets.FIREFOX_API_SECRET }}
+          xpi-path: pingpe-overview.zip
+          license: MIT
 
       - name: Release
         uses: softprops/action-gh-release@v2
