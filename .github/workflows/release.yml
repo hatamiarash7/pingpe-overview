@@ -27,7 +27,6 @@ jobs:
 
       - name: Zip Extension
         run: zip -qq -r pingpe-overview.zip . -x "*.git*" "dist/*"
-        working-directory: dist/
 
       - name: Publish Firefox
         uses: maoserr/firefox_extension_publish@v1.0.4
@@ -35,11 +34,11 @@ jobs:
           firefox_extension_id: pingpe-overview@arash-hatami.ir
           api_key: ${{ secrets.FIREFOX_API_KEY }}
           api_secret: ${{ secrets.FIREFOX_API_SECRET }}
-          file: dist/pingpe-overview.zip
+          file: pingpe-overview.zip
 
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           token: ${{ secrets.GH_TOKEN }}
           make_latest: true
-          files: dist/pingpe-overview.zip
+          files: pingpe-overview.zip
