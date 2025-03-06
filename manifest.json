@@ -3,7 +3,7 @@
   "author": "Arash Hatami",
   "name": "Ping.pe Overview",
   "short_name": "Ping.pe Overview",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Displays ping statistics for the current ping.pe session",
   "homepage_url": "https://github.com/hatamiarash7/pingpe-overview",
   "permissions": ["activeTab", "scripting"],
