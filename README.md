@@ -8,6 +8,13 @@ It's an Extension to calculate the global latency from all locations of the curr
 
 There is an `Exclude China` button too 😉 I'm sure you know what it does.
 
+## Usage
+
+1. Visit the [Ping.pe Overview](https://addons.mozilla.org/en-US/firefox/addon/ping-pe-overview/) add-on page and add it to your browser.
+2. Click on the extension icon in the toolbar or extension list.
+
+This extension will work on a `ping.pe` ping page, for example, [ping.pe/8.8.8.8](https://ping.pe/8.8.8.8)
+
 ---
 
 ## Support 💛
