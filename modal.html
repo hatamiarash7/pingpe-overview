@@ -1,46 +1,87 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Global Ping Stats</title>
+    <meta charset="utf-8" />
+    <title>Ping.pe Stats</title>
     <link rel="stylesheet" href="modal.css" />
   </head>
   <body>
-    <div id="modal">
-      <h1>Global Ping Statistics</h1>
+    <div id="app">
+      <header>
+        <div class="brand">
+          <span class="pulse" aria-hidden="true"></span>
+          <span>Ping.pe Overview</span>
+        </div>
+        <span id="count-badge" class="badge" hidden></span>
+      </header>
 
-      <div id="toggle-container">
-        <span class="toggle-label">Exclude China:</span>
-        <label class="toggle-switch">
-          <input type="checkbox" id="excludeCN-toggle" checked />
-          <span class="slider"></span>
-        </label>
-      </div>
+      <p id="message">Waiting for ping results…</p>
 
-      <div id="stats">
-        <p><strong>Mean of Last:</strong> <span id="last-mean"></span></p>
-        <p><strong>Mean of Avg:</strong> <span id="avg-mean"></span></p>
-        <p><strong>Mean of Best:</strong> <span id="best-mean"></span></p>
-        <p><strong>Mean of Worst:</strong> <span id="worst-mean"></span></p>
+      <main id="stats-view" hidden>
+        <div class="controls">
+          <label class="compare-toggle">
+            <input type="checkbox" id="excludeCN-toggle" checked />
+            <span>Exclude China</span>
+          </label>
+        </div>
+
+        <section class="hero">
+          <span class="hero-label">Global average latency</span>
+          <div class="hero-value">
+            <span id="avg-mean">0.00</span><span class="unit">ms</span>
+          </div>
+          <div class="hero-delta" id="hero-delta" hidden></div>
+          <div class="hero-sub">
+            median <b id="avg-median">–</b> · p95 <b id="avg-p95">–</b>
+          </div>
+        </section>
+
+        <section class="tiles">
+          <div class="tile">
+            <span class="tile-label">Last</span>
+            <span class="tile-value" id="last-mean">–</span>
+            <span class="tile-delta" id="last-delta" hidden></span>
+          </div>
+          <div class="tile">
+            <span class="tile-label">Best</span>
+            <span class="tile-value" id="best-mean">–</span>
+            <span class="tile-delta" id="best-delta" hidden></span>
+          </div>
+          <div class="tile">
+            <span class="tile-label">Worst</span>
+            <span class="tile-value" id="worst-mean">–</span>
+            <span class="tile-delta" id="worst-delta" hidden></span>
+          </div>
+        </section>
+
+        <section class="top5">
+          <div class="top5-head">
+            <h2 id="top5-heading">Highest latency</h2>
+            <div class="segmented" id="top-count" role="tablist" aria-label="Number of locations to show">
+              <button type="button" data-count="5" class="active" role="tab" aria-selected="true">5</button>
+              <button type="button" data-count="10" role="tab" aria-selected="false">10</button>
+              <button type="button" data-count="15" role="tab" aria-selected="false">15</button>
+            </div>
+          </div>
+          <ul id="top5-list"></ul>
+        </section>
+
+        <div id="compare-bar" hidden>
+          <label class="compare-toggle">
+            <input type="checkbox" id="compare-check" />
+            <span>Compare</span>
+          </label>
+          <span id="baseline-age"></span>
+          <button id="clear-baseline" type="button" title="Discard baseline">✕</button>
+        </div>
+      </main>
+
+      <div id="toolbar">
+        <button id="refresh" type="button" title="Recompute now">↻</button>
+        <button id="save-baseline" type="button" title="Save the current run as a baseline">Save</button>
+        <button id="export-csv" type="button" title="Download per-location data">CSV</button>
+        <button id="export-json" type="button" title="Download per-location data">JSON</button>
       </div>
-      <h2>Top 5 Worst Values</h2>
-      <table id="top5-table">
-        <thead>
-          <tr>
-            <th>Location</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>f</td>
-            <td>f</td>
-          </tr>
-          <tr>
-            <td>f</td>
-            <td>f</td>
-          </tr>
-        </tbody>
-      </table>
     </div>
     <script src="modal.js"></script>
   </body>
