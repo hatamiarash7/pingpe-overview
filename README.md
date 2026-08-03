@@ -6,14 +6,22 @@ It's an Extension to calculate the global latency from all locations of the curr
 
 ![sc](./.github/sc.png)
 
-There is an `Exclude China` button too 😉 I'm sure you know what it does.
+## Features
+
+- **Global summary** — mean, median, and p95 of the average latency across every location, plus mean last/best/worst, all colour-coded by health.
+- **Exclude China** — drop China nodes from every stat with a single toggle. Your choice is remembered across sessions.
+- **Live updates** — statistics refresh automatically as ping results stream in.
+- **Highest-latency list** — see the top 5, 10, or 15 slowest locations, with an inline latency bar per node. Your choice is remembered across sessions.
+- **Snapshot & compare** — save a run as a baseline, then compare later runs against it to see per-metric and per-location deltas (improved values in green, worse in red). New and removed locations are tagged.
+- **Export** — download the per-location data as CSV or JSON, or refresh on demand.
 
 ## Usage
 
 1. Visit the [Ping.pe Overview](https://addons.mozilla.org/en-US/firefox/addon/ping-pe-overview/) add-on page and add it to your browser.
-2. Click on the extension icon in the toolbar or extension list.
+2. Open a `ping.pe` ping page, for example [ping.pe/8.8.8.8](https://ping.pe/8.8.8.8), and let the results load.
+3. With that tab active, click the extension icon in the toolbar or extension list to see the statistics.
 
-This extension will work on a `ping.pe` ping page, for example, [ping.pe/8.8.8.8](https://ping.pe/8.8.8.8)
+To compare two runs, click **Save** to store the current run as a baseline, run your ping again (or change something and re-run), then turn on the **Compare** toggle to view the differences.
 
 ---
 

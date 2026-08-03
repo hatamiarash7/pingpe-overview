@@ -3,10 +3,10 @@
   "author": "Arash Hatami",
   "name": "Ping.pe Overview",
   "short_name": "Ping.pe Overview",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Displays ping statistics for the current ping.pe session",
   "homepage_url": "https://github.com/hatamiarash7/pingpe-overview",
-  "permissions": ["activeTab", "scripting"],
+  "permissions": ["activeTab", "scripting", "storage"],
   "action": {
     "default_popup": "modal.html"
   },
@@ -15,12 +15,6 @@
     "48": "icons/icon48.png",
     "96": "icons/icon96.png"
   },
-  "content_scripts": [
-    {
-      "matches": ["*://ping.pe/*"],
-      "js": ["content.js"]
-    }
-  ],
   "browser_specific_settings": {
     "gecko": {
       "id": "pingpe-overview@arash-hatami.ir"
